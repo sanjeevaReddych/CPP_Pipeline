@@ -23,7 +23,7 @@ pipeline {
                             sudo npm install -g @bazel/bazelisk
                             bazel --version
                             '''
-                        echo "Building project using Bazel"
+                        echo "Building project using Bazel "
                         sh '''
                             cd cpp-tutorial/stage1
                             bazel build //main:hello-world
