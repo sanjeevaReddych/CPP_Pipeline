@@ -12,12 +12,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'git checkout from ${params.Branch}'
+                echo 'git checkout from '+ params.Branch
                 git branch: params.Branch, credentialsId: 'git-creds', url: 'https://github.com/bazelbuild/examples'
 
                 script {
                     if (env.Build_by == 'Bazel'){
-                        echo "Env setup for Bazel":
+                        echo "Env setup for Bazel"
                         sh '''
                             sudo apt install npm
                             sudo npm install -g @bazel/bazelisk
