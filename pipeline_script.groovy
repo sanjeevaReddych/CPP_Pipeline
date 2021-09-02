@@ -1,27 +1,37 @@
 pipeline {
     agent any
 
+      parameters {
+                string defaultValue: 'main', name: 'Branch', trim: true
+                }
+
+      environment {
+                Build = "Bazel"
+      }
+
     stages {
-        stage("Env_setup") {
-            steps {
-                echo "building using bazel"
-                sh '''
-                sudo apt install npm
-                sudo npm install -g @bazel/bazelisk
-                bazel --version
-                '''
-            }
-        }
         stage('Build') {
             steps {
-                echo 'git checkout'
-                git branch: 'main', credentialsId: 'git-creds', url: 'https://github.com/bazelbuild/examples'
-                
-                echo "Building project using Bazel"
-                sh '''
-                cd cpp-tutorial/stage1
-                bazel build //main:hello-world
-                '''
+                echo 'git checkout from ${params.Branch}'
+                git branch: params.Branch, credentialsId: 'git-creds', url: 'https://github.com/bazelbuild/examples'
+
+                script {
+                    if (env.Build == 'Bazel'){
+                        echo "Env setup for Bazel"
+                        sh '''
+                            sudo apt install npm
+                            sudo npm install -g @bazel/bazelisk
+                            bazel --version
+                            '''
+                        echo "Building project using Bazel"
+                        sh '''
+                            cd cpp-tutorial/stage1
+                            bazel build //main:hello-world
+                            '''
+                    } else {
+                    echo "This build system is not configured"
+                    }
+                }
             }
         }
         stage('test') {
