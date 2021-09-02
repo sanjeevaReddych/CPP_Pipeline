@@ -6,7 +6,7 @@ pipeline {
                 }
 
       environment {
-                Build = "Bazel"
+                Build_by = "Bazel"
       }
 
     stages {
@@ -16,7 +16,7 @@ pipeline {
                 git branch: params.Branch, credentialsId: 'git-creds', url: 'https://github.com/bazelbuild/examples'
 
                 script {
-                    if (env.Build == 'Bazel'){
+                    if (env.Build_by == 'Bazel'){
                         echo "Env setup for Bazel"
                         sh '''
                             sudo apt install npm
