@@ -1,5 +1,5 @@
 # CPP_Pipeline
-This job compiles C++ project using bazel
+This job compiles C++ project using bazel 
 
 
 This Pipeline will checkout the https://github.com/bazelbuild/examples and
