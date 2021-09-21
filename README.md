@@ -1,4 +1,4 @@
-# CPP_Pipeline
+# CPP_Pipeline sample
 This job compiles C++ project using bazel 
 
 
