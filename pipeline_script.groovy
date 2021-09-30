@@ -19,9 +19,9 @@ pipeline {
                     if (env.Build_by == 'Bazel'){
                         echo "Env setup for Bazel"
                         sh '''
-				sudo su
-                            apt install npm
-                            npm install -g @bazel/bazelisk
+				
+                            sudo apt install npm
+			    sudo npm install -g @bazel/bazelisk
                             bazel --version
                             '''
                         echo "Building project using Bazel "
