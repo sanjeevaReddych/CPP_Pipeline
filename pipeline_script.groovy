@@ -14,6 +14,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+		deleteDir()
                 echo 'git checkout from '+ params.Branch
                 git branch: params.Branch, credentialsId: 'git-creds', url: 'https://github.com/bazelbuild/examples'
 		sh 'ls -ltr'
