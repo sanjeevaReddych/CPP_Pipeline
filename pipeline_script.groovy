@@ -45,7 +45,7 @@ pipeline {
           ./hello-world ''', returnStdout: true)
 		}
 	
-        	echo "${commit} "
+        	echo "${ret} "
       }
     }
 
