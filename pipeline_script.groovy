@@ -16,7 +16,7 @@ pipeline {
       steps {
 
         echo 'git checkout from ' + params.Branch
-        git credentialsId: 'd9feb0df-0fb1-4589-ab8e-aaecb3295d6e', url: 'https://github.com/bazelbuild/examples'
+        git branch: 'main', credentialsId: 'd9feb0df-0fb1-4589-ab8e-aaecb3295d6e', url: 'https://github.com/bazelbuild/examples.git'
         sh 'ls -ltr'
         sh 'pwd'
         script {
@@ -27,7 +27,7 @@ pipeline {
             sh 'pwd'
 
             sh '''
-            ls - ltr cpp-tutorial
+            ls -ltr cpp-tutorial
             cd cpp-tutorial/stage1
             bazel build//main:hello-world
               '''
