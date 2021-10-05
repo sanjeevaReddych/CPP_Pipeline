@@ -17,10 +17,13 @@ pipeline {
                 echo 'git checkout from '+ params.Branch
                 git branch: params.Branch, credentialsId: 'git-creds', url: 'https://github.com/bazelbuild/examples'
 		sh 'ls -ltr'
+		sh 'pwd'
                 script {
                     if (env.Build_by == 'Bazel'){
+			sh 'pwd'
                         enironment('bazel')
                         echo "Building project using Bazel "
+			sh 'pwd'
                         sh '''
                             cd cpp-tutorial/stage1
                             bazel build //main:hello-world
