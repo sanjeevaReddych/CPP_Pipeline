@@ -41,7 +41,7 @@ pipeline {
       steps {
         sh '''
         cd cpp-tutorial/stage1/bazel-bin/main
-          ./hello - world '''
+          ./hello-world '''
       }
     }
 
