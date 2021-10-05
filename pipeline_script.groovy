@@ -1,3 +1,5 @@
+@Library("shared-library")
+
 pipeline {
     agent any
 
@@ -17,13 +19,7 @@ pipeline {
 
                 script {
                     if (env.Build_by == 'Bazel'){
-                        echo "Env setup for Bazel"
-                        sh '''
-				
-                            sudo apt install npm
-			    sudo npm install -g @bazel/bazelisk
-                            bazel --version
-                            '''
+                        environment.bazel()
                         echo "Building project using Bazel "
                         sh '''
                             cd cpp-tutorial/stage1
