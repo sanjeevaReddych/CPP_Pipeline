@@ -16,7 +16,7 @@ pipeline {
       steps {
 
         echo 'git checkout from ' + params.Branch
-        git branch: params.Branch, credentialsId: 'git-creds', url: 'https://github.com/bazelbuild/examples'
+        git credentialsId: 'd9feb0df-0fb1-4589-ab8e-aaecb3295d6e', url: 'https://github.com/bazelbuild/examples'
         sh 'ls -ltr'
         sh 'pwd'
         script {
