@@ -39,9 +39,11 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh '''
+	def ret = sh(script:  '''
         cd cpp-tutorial/stage1/bazel-bin/main
-          ./hello-world '''
+          ./hello-world ''', 
+	returnStdout: true)
+        
       }
     }
 
