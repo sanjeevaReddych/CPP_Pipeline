@@ -29,7 +29,7 @@ pipeline {
             sh '''
             ls -ltr cpp-tutorial
             cd cpp-tutorial/stage1
-            bazel build//main:hello-world
+            bazel build //main:hello-world
               '''
           } else {
             echo "This build system is not configured"
