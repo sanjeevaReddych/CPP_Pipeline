@@ -19,7 +19,7 @@ pipeline {
 
                 script {
                     if (env.Build_by == 'Bazel'){
-                        bazel()
+                        enironment('bazel')
                         echo "Building project using Bazel "
                         sh '''
                             cd cpp-tutorial/stage1
