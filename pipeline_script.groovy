@@ -24,7 +24,9 @@ pipeline {
                         enironment('bazel')
                         echo "Building project using Bazel "
 			sh 'pwd'
+			
                         sh '''
+			    ls -ltr cpp-tutorial
                             cd cpp-tutorial/stage1
                             bazel build //main:hello-world
                             '''
