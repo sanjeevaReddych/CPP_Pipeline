@@ -38,11 +38,14 @@ pipeline {
       }
     }
     stage('test') {
-	def ret = sh(script:  ''' cd cpp-tutorial/stage1/bazel-bin/main
-          ./hello-world ''', returnStdout: true)
-      steps {
 	
-        echo "${commit} "
+      steps {
+	script{
+		def ret = sh(script:  ''' cd cpp-tutorial/stage1/bazel-bin/main
+          ./hello-world ''', returnStdout: true)
+		}
+	
+        	echo "${commit} "
       }
     }
 
