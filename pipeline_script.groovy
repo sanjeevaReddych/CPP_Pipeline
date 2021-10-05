@@ -26,13 +26,11 @@ pipeline {
             echo "Building project using Bazel "
             sh 'pwd'
 
-            sh ''
-            '
-            ls - ltr cpp - tutorial
-            cd cpp - tutorial / stage1
-            bazel build //main:hello-world
-              ''
-            '
+            sh '''
+            ls - ltr cpp-tutorial
+            cd cpp-tutorial/stage1
+            bazel build//main:hello-world
+              '''
           } else {
             echo "This build system is not configured"
           }
@@ -41,11 +39,9 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh ''
-        '
-        cd cpp - tutorial / stage1 / bazel - bin / main
-          . / hello - world ''
-        '
+        sh '''
+        cd cpp-tutorial/stage1/bazel-bin/main
+          ./hello - world '''
       }
     }
 
