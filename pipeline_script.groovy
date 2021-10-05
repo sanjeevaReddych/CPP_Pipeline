@@ -4,7 +4,7 @@ pipeline {
     agent any
 
       parameters {
-                string defaultValue: 'main', name: 'Branch', trim: true
+                string defaultValue: 'master', name: 'Branch', trim: true
                 }
 
       environment {
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo 'git checkout from '+ params.Branch
                 git branch: params.Branch, credentialsId: 'git-creds', url: 'https://github.com/bazelbuild/examples'
-
+		sh 'ls -ltr'
                 script {
                     if (env.Build_by == 'Bazel'){
                         enironment('bazel')
