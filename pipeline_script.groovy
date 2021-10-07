@@ -43,9 +43,10 @@ pipeline {
 	script{
 		def ret = sh(script:  ''' cd cpp-tutorial/stage1/bazel-bin/main
           ./hello-world ''', returnStdout: true)
+		echo "${ret}"
 		}
 	
-        	echo "${ret} "
+        	
       }
     }
 
