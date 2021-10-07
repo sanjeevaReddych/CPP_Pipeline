@@ -23,7 +23,7 @@ pipeline {
             bazel_helper.prepare_environment()
 
             echo "Building project using Bazel "
-            bazel_helper.create_build(dir: 'cpp-tutorial/stage1', build_function: 'hello-world')
+            bazel_helper.create_build(dir1: 'cpp-tutorial/stage1', build_function: 'hello-world')
 
            
           } else {
