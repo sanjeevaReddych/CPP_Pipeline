@@ -39,6 +39,7 @@ pipeline {
 	script{
 		def ret = sh(script:  ''' cd cpp-tutorial/stage1/bazel-bin/main
           ./hello-world ''', returnStdout: true)
+		echo ret.trim()
 		assert ret.trim() == 'Hello world'
 // 		echo ret
 // 		if (ret==true){
