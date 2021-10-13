@@ -43,7 +43,7 @@ pipeline {
 		if (test_output(ret)==true){
 			echo "test passes"
 				}else{
-					echo "test failed"
+					error("test failed")
 				}
 		}
 	
