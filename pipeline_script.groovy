@@ -41,12 +41,7 @@ pipeline {
           ./hello-world ''', returnStdout: true)
 		echo ret.trim()
 		assert ret.trim() == 'Hello world'
-// 		echo ret
-// 		if (ret==true){
-// 			echo "test passes"
-// 				}else{
-// 					error("test failed")
-// 				}
+
 		}
 	
         	
