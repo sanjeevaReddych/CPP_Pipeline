@@ -39,12 +39,13 @@ pipeline {
 	script{
 		def ret = sh(script:  ''' cd cpp-tutorial/stage1/bazel-bin/main
           ./hello-world ''', returnStdout: true)
-		echo ret
-		if (test_output(ret)==true){
-			echo "test passes"
-				}else{
-					error("test failed")
-				}
+		assert ret.trim() == 'Hello world'
+// 		echo ret
+// 		if (ret==true){
+// 			echo "test passes"
+// 				}else{
+// 					error("test failed")
+// 				}
 		}
 	
         	
